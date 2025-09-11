@@ -1,0 +1,34 @@
+MAZE NAVIGATION GAME
+-----------------------------------------------
+You are navigating through a maze to reach the exit.
+
+Rules:
+- Move through the maze one step at a time
+- Avoid walls (#) and stay within boundaries
+- Find the shortest path to the exit (E)
+- Respond ONLY in the required format
+- Do NOT add explanation, commentary, or extra text
+
+Game State:
+Current Position : (0,0)
+Steps Taken      : 0
+
+Maze Layout:
+S . # . E
+# . # . .
+. . . . #
+# # . . .
+. . . # .
+
+Legend: S=Start, E=Exit, #=Wall, .=Empty, @=You
+
+-----------------------------------------------
+Required Response Format:
+MOVE: [direction]
+
+Examples:
+MOVE: UP
+MOVE: RIGHT
+
+-----------------------------------------------
+Your move:
