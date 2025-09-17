@@ -16,5 +16,8 @@ dependencies = [
     "rich",
 ]
 
+[project.scripts]
+envarena-cli = "envarena.cli.main:main"
+
 [tool.setuptools.packages.find]
 exclude = ["examples", "tests", "docs"]
