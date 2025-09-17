@@ -7,7 +7,7 @@ class GeminiWrapper:
                  model_name : str = None,
                  temperature : float = None
             ):
-        self.model_name = model_name
+        self.model_name = model_name or "gemini-2.5-flash"
         self.temperature = temperature
         self.GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
@@ -18,7 +18,7 @@ class GeminiWrapper:
 
     def stream_response(self, prompt: str):
         response = self.client.models.generate_content_stream(
-            model="gemini-2.5-flash",
+            model=self.model_name,
             contents=prompt
         )
 
