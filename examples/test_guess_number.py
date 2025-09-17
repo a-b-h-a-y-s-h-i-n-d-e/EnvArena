@@ -1,4 +1,4 @@
-from envarena.envs.GuessTheNumber.env import GuessTheNumber
+from envarena.envs import GuessTheNumber
 from envarena.wrappers.OllamaWrapper import OllamaWrapper
 from envarena.ui.dashboard import Dashboard
 import time

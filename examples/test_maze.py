@@ -1,4 +1,4 @@
-from envarena.envs.MazeNavigation.env import MazeNavigation
+from envarena.envs import MazeNavigation
 from envarena.wrappers.OllamaWrapper import OllamaWrapper
 from envarena.ui.dashboard import Dashboard
 import time
