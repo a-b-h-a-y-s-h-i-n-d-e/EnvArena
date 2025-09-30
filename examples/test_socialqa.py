@@ -1,15 +1,15 @@
-from envarena.envs import GuessTheNumber
+from envarena.envs import SocialQA
 from envarena.wrappers.OllamaWrapper import OllamaWrapper
 from envarena.ui.dashboard import Dashboard
 import time
 
 
-env = GuessTheNumber()
-llama_1b = OllamaWrapper(model_name="qwen3:8b")
+# the dataset contains thousands of questions, so if you have compute you can increase the n_samples
+env = SocialQA(n_samples = 2)
+model = OllamaWrapper(model_name="deepseek-r1:7b")
 ui = Dashboard()
 
 
-obs = env.reset()
 done = False
 
 ui.start()
@@ -19,35 +19,25 @@ try:
         state = env.get_observation()
         ui.update_game_state(f"🎮 State: {state}")
 
-        
+        if env.done:
+            break
+
+
         response_collected = ""
-        for token in llama_1b.stream_response(prompt=obs):
+        for token in model.stream_response(prompt=state):
             response_collected += token
             ui.update_agent_state(response_collected)
 
         action = response_collected.strip()
 
         obs, reward, done, info = env.step(action)
-
-        if done:
-            ui.win()
-
         time.sleep(2)
 
 except Exception as e:
     ui.stop()
     print(e)
 
-ui.stop()
-results = env.get_results()
-print(results)
+finally:
+    ui.stop()
 
-
-
-"""
-
-best model :-
-qwen3:4b and later versions
-exaone-deep:2.4b
-
-"""
+print(env.get_results())

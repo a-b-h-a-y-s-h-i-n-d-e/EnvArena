@@ -4,7 +4,7 @@ from envarena.ui.dashboard import Dashboard
 import time
 
 env = MazeNavigation()
-model = OllamaWrapper(model_name="llama3.2:1b")
+model = OllamaWrapper(model_name="deepseek-r1:8b")
 ui = Dashboard()
 
 
