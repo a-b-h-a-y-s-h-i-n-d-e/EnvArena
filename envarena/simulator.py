@@ -40,8 +40,12 @@ class Simulator:
         except KeyboardInterrupt:
             self.ui.stop()
             print("\n Simulation interrupted by user")
-            
+
         except Exception as e:
             self.ui.stop()
             print(e)
 
+        finally:
+            self.ui.stop()
+
+        print(self.env.get_results())
