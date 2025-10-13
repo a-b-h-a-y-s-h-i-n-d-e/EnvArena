@@ -104,8 +104,9 @@ class SocialQA:
         results = f"""
             FINAL RESULTS 
             --------------------------------------------
-            n_samples   : {self.n_samples}
-            score       : {score}
+            n_samples           : {self.n_samples}
+            last 10 rewards     : {self.rewards[-10:]}
+            score               : {score}
         """
         return results
     

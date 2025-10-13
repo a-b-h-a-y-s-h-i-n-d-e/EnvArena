@@ -6,7 +6,7 @@ import time
 
 # the dataset contains thousands of questions, so if you have compute you can increase the n_samples
 env = SocialQA(n_samples = 2)
-model = OllamaWrapper(model_name="deepseek-r1:7b")
+model = OllamaWrapper(model_name="qwen:4b")
 ui = Dashboard()
 
 
