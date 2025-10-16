@@ -12,5 +12,26 @@
 <a href="">Docs</a> |
 
 </h3>
-<div align="center">
+</div>
 
+### 🧩 Installation
+```bash
+pip install envarena
+```
+
+
+### ⚡ Quick Start
+
+```python
+from envarena import Simulator
+from envarena.envs import GuessTheNumber
+from envarena.wrappers import OllamaWrapper
+
+
+simulator = Simulator(
+    env=GuessTheNumber(),
+    model=OllamaWrapper("deepseek-r1:1.5b")
+)
+
+simulator.run()
+```
