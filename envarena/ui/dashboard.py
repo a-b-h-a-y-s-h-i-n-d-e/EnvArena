@@ -46,9 +46,18 @@ class Dashboard:
         )
     
     def win(self):
-        message = "🏆 WIN! 🏆"
+        message = " WIN! "
         style = "bold green"
 
+
+        self.layout = Layout()
+        centered_msg = Align.center(message, vertical="middle")  
+        self.layout.update(Panel(centered_msg, title="Result", border_style=style))
+        self.live.update(self.layout)
+
+    def complete(self):
+        message = " Env run completed! "
+        style = "bold green"
 
         self.layout = Layout()
         centered_msg = Align.center(message, vertical="middle")  
