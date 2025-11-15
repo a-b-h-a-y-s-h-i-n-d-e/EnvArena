@@ -71,7 +71,7 @@ class boolq:
                 return (self.get_observation(), reward, False, "")
         
         else:
-            return (self.get_observation(), True, "")
+            return (self.get_observation(), -1, True, "")
 
 
 
@@ -96,14 +96,24 @@ class boolq:
         return data
     
 
-    def extract_guess(action):
-        response = re.sub(r'<think>.*?</think>', '', response, flags=re.DOTALL)
+    def extract_guess(self, action):
+        response = re.sub(r'<think>.*?</think>', '', action, flags=re.DOTALL)
         response = action.strip()
 
         pattern = r'GUESS\s*:\s*(true|false)'
         match = re.search(pattern, response, re.IGNORECASE)
 
         return match.group(1).lower() if match else None
-        
+    
+    def get_results(self):
+        score = sum(self.rewards)
+        results = f"""
+        FINAL RESULTS
+        --------------------------------------------
+        number of questions : {self.num_examples}
+        final score         : {score}
+
+        """.strip()
+        return results        
 
 
