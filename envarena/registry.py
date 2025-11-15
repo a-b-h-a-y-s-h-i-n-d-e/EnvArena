@@ -1,11 +1,12 @@
-from envarena.envs import GuessTheNumber, MazeNavigation, SocialQA
+from envarena.envs import GuessTheNumber, MazeNavigation, SocialQA, boolq
 from envarena.wrappers.OllamaWrapper import OllamaWrapper
 from envarena.wrappers.GeminiWrapper import GeminiWrapper
 
 ENV_REGISTRY = {
-    "GuessTheNumber": GuessTheNumber,
-    "MazeNavigation": MazeNavigation,
-    "SocialQA" : SocialQA,
+    "guessthenumber": GuessTheNumber,
+    "mazenavigation": MazeNavigation,
+    "socialqa" : SocialQA,
+    "boolq" : boolq
 }
 
 MODEL_REGISTRY = {

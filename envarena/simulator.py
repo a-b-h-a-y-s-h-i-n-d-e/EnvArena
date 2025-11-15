@@ -3,14 +3,14 @@ import time
 
 
 class Simulator:
-    def __init__(self, env, model, delay=1, verbose=False):
+
+    def __init__(self, env, model_wrapper, delay=1):
+
         self.env = env
-        self.model = model
+        self.model = model_wrapper
         self.delay = delay
-        self.verbose = verbose
 
         self.ui = Dashboard()
-
 
     def run(self):        
         self.ui.start()
